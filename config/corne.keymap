@@ -77,37 +77,37 @@
 
         equal {
             bindings = <&kp EQUAL>;
-            key-positions = <16 17>;
+            key-positions = <16 19>;
             timeout-ms = <50>;
         };
 
         plus {
             bindings = <&kp PLUS>;
-            key-positions = <4 5>;
+            key-positions = <4 7>;
             timeout-ms = <50>;
         };
 
         minus {
             bindings = <&kp MINUS>;
-            key-positions = <28 29>;
+            key-positions = <28 31>;
             timeout-ms = <50>;
         };
 
-        pipe {
-            bindings = <&kp PIPE>;
-            key-positions = <18 19>;
-            timeout-ms = <50>;
-        };
-  
         star {
             bindings = <&kp STAR>;
-            key-positions = <6 7>;
+            key-positions = <3 8>;
             timeout-ms = <50>;
         };
 
         bac {
             bindings = <&kp BACKSLASH>;
-            key-positions = <30 31>;
+            key-positions = <15 20>;
+            timeout-ms = <50>;
+        };
+
+        pipe {
+            bindings = <&kp PIPE>;
+            key-positions = <27 32>;
             timeout-ms = <50>;
         };
 
