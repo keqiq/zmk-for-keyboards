@@ -27,3 +27,12 @@ nice_view_spi: &spi0 {
 &pro_micro_i2c {
     status = "disabled";
 };
+
+/ {
+    output_vcc: output_vcc {
+        compatible = "regulator-fixed";
+        regulator-name = "display_vcc";
+        enable-gpios = <&pro_micro 10 GPIO_ACTIVE_HIGH>;
+        regulator-boot-on;
+    };
+};
