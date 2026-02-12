@@ -16,23 +16,34 @@
     };
 };
 
-nice_view_spi: &spi0 {
-    compatible = "nordic,nrf-spim";
-    pinctrl-0 = <&spi0_default>;
-    pinctrl-1 = <&spi0_sleep>;
-    pinctrl-names = "default", "sleep";
-    cs-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
-};
-
-&pro_micro_i2c {
-    status = "disabled";
-};
-
 / {
     output_vcc: output_vcc {
         compatible = "regulator-fixed";
         regulator-name = "display_vcc";
         enable-gpios = <&pro_micro 10 GPIO_ACTIVE_HIGH>;
         regulator-boot-on;
+        startup-delay-us = <50000>;
     };
+};
+
+nice_view_spi: &spi0 {
+    compatible = "nordic,nrf-spim";
+    pinctrl-0 = <&spi0_default>;
+    pinctrl-1 = <&spi0_sleep>;
+    pinctrl-names = "default", "sleep";
+    cs-gpios = <&gpio0 8 GPIO_ACTIVE_HIGH>;
+
+    nice_view: ls0xx@0 {
+        compatible = "sharp,ls0xx";
+        spi-max-frequency = <1000000>;
+        reg = <0>;
+        width = <160>;
+        height = <68>;
+        
+        vin-supply = <&output_vcc>; 
+    };
+};
+
+&pro_micro_i2c {
+    status = "disabled";
 };
